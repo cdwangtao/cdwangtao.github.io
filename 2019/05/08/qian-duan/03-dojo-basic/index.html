@@ -1,0 +1,1404 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="第03章 dojo基础, 王涛的博客">
+    <meta name="description" content="第03章 dojo基础第1讲 dojo简介主讲内容Dojo  简介
+Dojo  架构
+Dojo Toolkit 简介
+Dojo Toolkit 的特性
+Dojo 包
+环境搭建
+Dojo Hello World 应用程序
+
+1. Dojo 简">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>第03章 dojo基础 | 王涛的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdwangtao.gitee.io/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdwangtao.gitee.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdwangtao.gitee.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdwangtao.gitee.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdwangtao.gitee.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="https://cdwangtao.gitee.io/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">王涛的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">王涛的博客</div>
+        <div class="logo-desc">
+            
+            欢迎光临
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cdwangtao" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cdwangtao" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        第03章 dojo基础
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdwangtao.gitee.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/前端/" target="_blank">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                            <a href="/tags/dojo/" target="_blank">
+                                <span class="chip bg-color">dojo</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-05-08
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="第03章-dojo基础"><a href="#第03章-dojo基础" class="headerlink" title="第03章 dojo基础"></a>第03章 dojo基础</h2><h3 id="第1讲-dojo简介"><a href="#第1讲-dojo简介" class="headerlink" title="第1讲 dojo简介"></a>第1讲 dojo简介</h3><h4 id="主讲内容"><a href="#主讲内容" class="headerlink" title="主讲内容"></a>主讲内容</h4><pre class=" language-javascript"><code class="language-javascript">Dojo  简介
+Dojo  架构
+Dojo Toolkit 简介
+Dojo Toolkit 的特性
+Dojo 包
+环境搭建
+Dojo Hello World 应用程序
+</code></pre>
+<h4 id="1-Dojo-简介"><a href="#1-Dojo-简介" class="headerlink" title="1. Dojo 简介"></a>1. Dojo 简介</h4><ul>
+<li>Dojo 是一个 JavaScript 实现的开源 DHTML 工具包。它是在几个项目捐助基础上建立起来的(nWidgets，f(m)，Burstlib) 。 Dojo 的最初目标是解决开发 DHTML 应用程序遇到的一些长期存在的历史问题，现在，Dojo 已经成为了开发 RIA 应用程序的利器：</li>
+<li>Dojo 让您更容易地为 Web 页面添加动态能力，您也可以在其它支持 JavaScript 的环境中使用 Dojo ；<br>利用 Dojo 提供的组件，您可以提升 Web 应用程序的可用性和交互能力；</li>
+<li>Dojo 很大程度上屏蔽了浏览器之间的差异性，因此，您可以不用担心 Web 页面是否在某些浏览器中可用；<br>通过 Dojo 提供的工具，您还可以为代码编写命令行式的单元测试代码。</li>
+<li>Dojo 的打包工具可以帮助您优化 JavaScript 代码，并且只生成部署应用程序所需的最小 Dojo 包集合。</li>
+<li>接下来，我们看看 Dojo 是如何组织这些功能组件的。</li>
+</ul>
+<h4 id="2-dojo架构"><a href="#2-dojo架构" class="headerlink" title="2. dojo架构"></a>2. dojo架构</h4><ul>
+<li>1.语言库</li>
+<li>2.特殊环境库</li>
+<li>3.应用支撑库</li>
+<li>4.工具包库</li>
+</ul>
+<p><img src="/2019/05/08/qian-duan/03-dojo-basic/dojo架构.png" alt="dojo架构"></p>
+<h4 id="3-Dojo-Toolkit-简介"><a href="#3-Dojo-Toolkit-简介" class="headerlink" title="3. Dojo Toolkit 简介"></a>3. Dojo Toolkit 简介</h4><ul>
+<li>Dojo Toolkit是Dojo开发组件库</li>
+<li>Dojo Toolkit 的特性可以分到 4 个不同部分</li>
+</ul>
+<h4 id="3-1-Dojo-Toolkit-的特性-Base"><a href="#3-1-Dojo-Toolkit-的特性-Base" class="headerlink" title="3.1 Dojo Toolkit 的特性-Base"></a>3.1 Dojo Toolkit 的特性-Base</h4><ul>
+<li><strong>Base</strong> 包提供 <strong>Dojo</strong> Toolkit 的基础，包括一些功能，比如DOM使用函数、CSS3基于选择器的DOM查询、事件处理、基本的动画、以及<strong>Dojo</strong> 基于类的面向对象特性。</li>
+</ul>
+<h4 id="3-2-Dojo-Toolkit-的特性-Core"><a href="#3-2-Dojo-Toolkit-的特性-Core" class="headerlink" title="3.2 Dojo Toolkit 的特性-Core"></a>3.2 Dojo Toolkit 的特性-Core</h4><ul>
+<li>Core 包包含一些 Base 中没有包含的附加特性。通常，这些特性不像 Base 中的特性那样频繁使用；因此，它们单独加载减轻 Base 包的负担。从这一点上来讲，Core 包提供一些实际有用的组件，包括高级动画拖放、I/O、数据管理、国际化（i18n）、浏览器历史管理。</li>
+</ul>
+<h4 id="3-3-Dojo-Toolkit-的特性-Dijit"><a href="#3-3-Dojo-Toolkit-的特性-Dijit" class="headerlink" title="3.3 Dojo Toolkit 的特性-Dijit"></a>3.3 Dojo Toolkit 的特性-Dijit</h4><ul>
+<li>Dijit 包包含 <strong>Dojo</strong> 小部件和组件的扩展UI库。这些小部件的一些示例包括对话框、日历、调色板、工具提示和树。它也包括一些表单控件，这比标准HTML表单控件提供更多的功能，还有一些完整的布局管理选项。</li>
+</ul>
+<h4 id="3-4-Dojo-Toolkit-的特性-DojoX"><a href="#3-4-Dojo-Toolkit-的特性-DojoX" class="headerlink" title="3.4 Dojo Toolkit 的特性-DojoX"></a>3.4 Dojo Toolkit 的特性-DojoX</h4><ul>
+<li><strong>Dojo</strong> eXtensions (DojoX) 包含工具箱的各个子项目。位于DojoX中的大多数是实验特性，但是也有一些稳定组件和特性。</li>
+</ul>
+<h4 id="4-Dojo-包整理"><a href="#4-Dojo-包整理" class="headerlink" title="4. Dojo 包整理"></a>4. Dojo 包整理</h4><p>01.dojo包的整理.docx</p>
+<h4 id="5-环境搭建"><a href="#5-环境搭建" class="headerlink" title="5. 环境搭建"></a>5. 环境搭建</h4><ul>
+<li>环境搭建</li>
+<li><a href="http://dojotoolkit.org/download/" target="_blank" rel="noopener">http://dojotoolkit.org/download/</a></li>
+</ul>
+<h3 id="第2讲-忽略"><a href="#第2讲-忽略" class="headerlink" title="第2讲 忽略"></a>第2讲 忽略</h3><h3 id="第3讲DOM操作"><a href="#第3讲DOM操作" class="headerlink" title="第3讲DOM操作"></a>第3讲DOM操作</h3><h4 id="主讲内容-1"><a href="#主讲内容-1" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>dojo.ready</li>
+<li>dojo.byId</li>
+<li>dojo.query</li>
+<li>dojo.body</li>
+<li>dojo.create</li>
+<li>dojo.destroy</li>
+</ul>
+<h4 id="1-dojo-ready"><a href="#1-dojo-ready" class="headerlink" title="1. dojo.ready"></a>1. dojo.ready</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// dojo.ready </span>
+加载代码dojo
+dojo<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h4 id="2-dojo-byId"><a href="#2-dojo-byId" class="headerlink" title="2. dojo.byId"></a>2. dojo.byId</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// dojo.byId</span>
+dojo<span class="token punctuation">.</span>byId 函数使您可以通过 id 属性选择一个 DOM 节点。该函数是标准 document<span class="token punctuation">.</span>getElementById 函数的一个别名，但是显然简短易书写。
+dojo<span class="token punctuation">.</span><span class="token function">byId</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取ID为demo的元素</span>
+
+</code></pre>
+<h4 id="3-dojo-query"><a href="#3-dojo-query" class="headerlink" title="3. dojo.query"></a>3. dojo.query</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// dojo.query</span>
+  虽然dojo<span class="token punctuation">.</span>byId可以方便的根据id来获取一个DOM节点，但是根据id获取每一个元素几乎是不可能的，因为id是唯一标识。如果一次想获取几个元素，我们可以通过dojo<span class="token punctuation">.</span>query方法。
+  dojo<span class="token punctuation">.</span>query 函数接受一个字符串参数，使用一个 CSS3 选择器引用您想选择的元素。这种操作方式很像jquery对DOM的操作。如果我们想获取页面中的某一个<span class="token keyword">class</span>的所有元素，只需要使用以下代码：
+  dojo<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">".class"</span><span class="token punctuation">)</span> 
+这个方法将返回一个NodeList，我们可以通过遍历这个list来操作每一个元素。
+
+</code></pre>
+<h4 id="4-dojo-body"><a href="#4-dojo-body" class="headerlink" title="4. dojo.body"></a>4. dojo.body</h4><ul>
+<li><p>dojo.body方法返回document的body元素</p>
+</li>
+<li><p>console.log( dojo.body() );</p>
+</li>
+</ul>
+<h4 id="5-dojo-create"><a href="#5-dojo-create" class="headerlink" title="5. dojo.create"></a>5. dojo.create</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// dojo.create</span>
+</code></pre>
+<ul>
+<li>dojo.create(str, attrs, refNode, pos)</li>
+<li>元素类型</li>
+<li>属性</li>
+<li>添加到哪里</li>
+<li>添加到的位置</li>
+</ul>
+<h5 id="pos"><a href="#pos" class="headerlink" title="pos"></a>pos</h5><ul>
+<li><ol>
+<li>[null] 新创建的元素将作为refNode的子元素, 且添加到refNode中最后的位置 </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>[before] 新创建的元素将作为refNode的同辈元素, 且位于refNode的前边 </li>
+</ol>
+</li>
+<li><ol start="3">
+<li>[after] 新创建的元素将作为refNode的同辈元素, 且位于refNode的后边 </li>
+</ol>
+</li>
+<li><ol start="4">
+<li>[only] 新创建的元素将取代父元素内所有子元素, 添加到refNode内部 </li>
+</ol>
+</li>
+<li><ol start="5">
+<li>[replace] 新创建的元素将直接替换点父元素 </li>
+</ol>
+</li>
+<li><ol start="6">
+<li>[first] 新创建的元素将作为refNode的子元素, 并添加到所有子元素的最前边 </li>
+</ol>
+</li>
+<li><ol start="7">
+<li>[last] 新创建的元素将作为refNode的子元素, 并添加到所有子元素的最后边</li>
+</ol>
+</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">pos  
+</code></pre>
+<h4 id="6-dojo-destroy"><a href="#6-dojo-destroy" class="headerlink" title="6. dojo.destroy"></a>6. dojo.destroy</h4><ul>
+<li>dojo.destroy方法会从父元素中删除该元素，并删掉该元素的所有子元素</li>
+<li>var node = dojo.byId(“node”); </li>
+<li>dojo.empty(node); //删除节点的所有子节点(简单描述: 清空节点)</li>
+<li>dojo.destroy(node);删除节点及其所有子点(简单描述: 删除节点)</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">dojo<span class="token punctuation">.</span>destroy
+</code></pre>
+<h3 id="第4讲dojo面向对象"><a href="#第4讲dojo面向对象" class="headerlink" title="第4讲dojo面向对象"></a>第4讲dojo面向对象</h3><ul>
+<li>什么是面向对象</li>
+<li>类的声明</li>
+<li>定义继承</li>
+<li>定义静态域</li>
+<li>调用父类方法</li>
+<li>定义扩展(extend)</li>
+</ul>
+<h4 id="1-什么是面向对象"><a href="#1-什么是面向对象" class="headerlink" title="1. 什么是面向对象"></a>1. 什么是面向对象</h4><ul>
+<li>对象指的就是世界万物</li>
+<li>面向对象就是基于对象，面向对象的编程就是基于对象的编程，程序中的任何操作都是基于对象的操作。</li>
+<li>在计算机中对象是抽象的，所谓抽象就是，无所谓是否存在，通过想象设计的物。</li>
+</ul>
+<h4 id="2-dojo类的声明-定义"><a href="#2-dojo类的声明-定义" class="headerlink" title="2. dojo类的声明-定义"></a>2. dojo类的声明-定义</h4><ul>
+<li>类是创建对象的对象</li>
+<li>语法：dojo.declare(className,superclass, props);</li>
+</ul>
+<h4 id="2-1-dojo类的声明-语法"><a href="#2-1-dojo类的声明-语法" class="headerlink" title="2.1 dojo类的声明-语法"></a>2.1 dojo类的声明-语法</h4><ul>
+<li>dojo.declare(className,superclass, props);</li>
+<li>其中className定义了类型的名称。superclass指定了父类型，如果想声明的类并不存在父类，那么superclass可以为null。由于在Dojo中支持多继承，因此superclass可以是一个包含了所有父类的数组。最后的props是一个对象，其中包含了该类的所有字段以及方法。在props中可以定义一个特殊的函数constructor，constructor在该类型被实例化的时候会被自动调用到，相当于构造函数。</li>
+</ul>
+<h4 id="2-2-dojo类的声明-实例"><a href="#2-2-dojo类的声明-实例" class="headerlink" title="2.2 dojo类的声明-实例"></a>2.2 dojo类的声明-实例</h4><pre class=" language-javascript"><code class="language-javascript">dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">'People'</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token punctuation">{</span>  
+    name<span class="token punctuation">:</span>‘小明'<span class="token punctuation">,</span>  
+    constructor<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> p<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token string">'Jack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<h4 id="3-定义继承"><a href="#3-定义继承" class="headerlink" title="3. 定义继承"></a>3. 定义继承</h4><ul>
+<li>dojo.declare除了能够声明类，还能对类进行扩展，进而达到继承目的</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 定义“人”这个类</span>
+dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">'People'</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token punctuation">{</span>  
+    name<span class="token punctuation">:</span><span class="token string">'unknown name'</span><span class="token punctuation">,</span>  
+    action<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token comment" spellcheck="true">//do nothing  </span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    constructor<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 定义学生这个类</span>
+dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">'Student'</span><span class="token punctuation">,</span>People<span class="token punctuation">,</span><span class="token punctuation">{</span>  
+    school<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span>  
+    action<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token comment" spellcheck="true">//I am studing  </span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    constructor<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>school<span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token keyword">this</span><span class="token punctuation">.</span>school<span class="token operator">=</span>school<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 类的使用</span>
+<span class="token keyword">var</span> s<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">'Jack'</span><span class="token punctuation">,</span><span class="token string">'Harvard'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+s<span class="token punctuation">.</span>name    <span class="token comment" spellcheck="true">// Jack  </span>
+s<span class="token punctuation">.</span>school 　<span class="token comment" spellcheck="true">// Harvard  </span>
+s<span class="token punctuation">.</span>action 　<span class="token comment" spellcheck="true">// I am studing</span>
+
+</code></pre>
+<h4 id="4-定义静态域"><a href="#4-定义静态域" class="headerlink" title="4. 定义静态域"></a>4. 定义静态域</h4><ul>
+<li>传统的面向对象语言都直接在语言层面上支持静态域的概念。例如JAVA，其静态域包括静态类型的字段以及方法，静态类型的字段由所有的实例共享，而静态方法可以由类型直接调用，故其中不能访问非静态字段（只能先产生实例，在通过实例访问字段）。JS并没有直接支持静态域这个概念，但可以通过模拟的方式来达到静态域的效果。下面一个例子展示了Dojo中如何定义静态域：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 定义静态域 staticFields</span>
+dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">"Foo"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>  
+    staticFields<span class="token punctuation">:</span> <span class="token punctuation">{</span> num<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    add<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+        <span class="token keyword">this</span><span class="token punctuation">.</span>staticFields<span class="token punctuation">.</span>num<span class="token operator">++</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token keyword">var</span> f1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token keyword">var</span> f2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+f1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+f2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1<span class="token punctuation">.</span>staticFields<span class="token punctuation">.</span>num <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//2 </span>
+</code></pre>
+<h4 id="5-调用父类方法"><a href="#5-调用父类方法" class="headerlink" title="5. 调用父类方法"></a>5. 调用父类方法</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 调用父类方法</span>
+dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">"Foo"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>  
+    constructor<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+dojo<span class="token punctuation">.</span><span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">"Bar"</span><span class="token punctuation">,</span> Foo<span class="token punctuation">,</span> <span class="token punctuation">{</span>  
+    constructor<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span>  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token keyword">var</span> b<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Bar</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 自动调用,打印foo bar  </span>
+</code></pre>
+<h4 id="6-定义扩展-extend"><a href="#6-定义扩展-extend" class="headerlink" title="6. 定义扩展(extend)"></a>6. 定义扩展(extend)</h4><ul>
+<li>extend对类型进行扩展，增加原先没有的新属性（方法）。当然也可以用它来添加重名的属性，不过这样会有一定的风险替换掉原先已经定义的属性。</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">dojo.declare('A',null,{  
+    func1:function(){ console.log('fun1')}  
+});  
+A.extend({  
+    func1:function(){ console.log('fun2')},  
+    func2:function(){ console.log('fun3')}  
+});  
+var a=new A;  
+a.func1();      //fun2  
+a.func2();    
+</code></pre>
+<h3 id="第5讲Dojo常用函数"><a href="#第5讲Dojo常用函数" class="headerlink" title="第5讲Dojo常用函数"></a>第5讲Dojo常用函数</h3><h4 id="主讲内容-2"><a href="#主讲内容-2" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>Require函数</li>
+<li>Define函数</li>
+<li>Request函数</li>
+<li>Declare函数</li>
+<li>On函数</li>
+</ul>
+<h4 id="1-Require函数的使用"><a href="#1-Require函数的使用" class="headerlink" title="1. Require函数的使用"></a>1. Require函数的使用</h4><ul>
+<li>Require函数的作用主要是引入组件和模块作用</li>
+<li>如： dojo. require(“dijit.form.Button”);</li>
+<li>新的用方法：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span>“dijit<span class="token operator">/</span>form<span class="token operator">/</span>Button”<span class="token punctuation">,</span> “dojox<span class="token operator">/</span>layout<span class="token operator">/</span>ContentPane”<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>Button<span class="token punctuation">,</span> ContentPane<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="2-Define函数"><a href="#2-Define函数" class="headerlink" title="2. Define函数"></a>2. Define函数</h4><ul>
+<li>作用是定义一个模块（module）。这个模块可以被require引用，引用了之后就可以使用define里面的东西</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token string">"dojo/dom"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        setRed<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            dom<span class="token punctuation">.</span><span class="token function">byId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<h5 id="2-1-Require调用Define定义的模块"><a href="#2-1-Require调用Define定义的模块" class="headerlink" title="2.1. Require调用Define定义的模块"></a>2.1. Require调用Define定义的模块</h5><pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>script<span class="token operator">></span>  
+    <span class="token function">require</span><span class="token punctuation">(</span>  
+        <span class="token punctuation">[</span> <span class="token string">"dojo/ready"</span><span class="token punctuation">,</span> <span class="token string">"test/util"</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>  
+        <span class="token function">function</span><span class="token punctuation">(</span>ready<span class="token punctuation">,</span> util<span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+            <span class="token function">ready</span><span class="token punctuation">(</span><span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+                var id <span class="token operator">=</span> <span class="token string">"selected_text"</span><span class="token punctuation">;</span>  
+                util<span class="token punctuation">.</span><span class="token function">setRed</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h4 id="3-Request函数"><a href="#3-Request函数" class="headerlink" title="3. Request函数"></a>3. Request函数</h4><ul>
+<li>处理ajax，异步通信</li>
+<li>Request（URL, Option)</li>
+<li>dojo/request函数（以及该模块下所有的发起请求的函数）的签名包含一个URL以及一个选项对象。这个选项对象中可以配置有关这次请求的各种参数。通常情况下使用dojo/request非常简单，只需要传递一个字符串，option参数是可省略的。让我们来看看option对象中的常用配置参数：</li>
+</ul>
+<h5 id="3-1-option参数"><a href="#3-1-option参数" class="headerlink" title="3.1 option参数"></a>3.1 option参数</h5><ul>
+<li>method: 用于本请求的HTTP方法（默认是GET，dojo/request/script会忽略这个参数）</li>
+<li>query: 形如key=value的字符串，或者形如{key: ‘value’}的对象，包含所有的query参数</li>
+<li>data: 字符串或对象（会被dojo/io-query.objectToQuery串行化成字符串），表示需要发送的数据（GET和DELET请求会忽略这个参数）</li>
+<li>handleAs: 表示如何处理服务器端响应的字符串，默认”text”，其他可能的值包括’json’, ‘javascript’,以及’xml’</li>
+<li>headers: 形如{‘Header-Name’: ‘value’}的对象，包含请求所需要的各种头部属性</li>
+<li>timeout: 表示等待多少毫秒算超时的整数，一旦超时将取消请求并”拒绝（reject）”所返回的promise。</li>
+</ul>
+<h5 id="3-2-Request函数-返回"><a href="#3-2-Request函数-返回" class="headerlink" title="3.2 Request函数-返回"></a>3.2 Request函数-返回</h5><ul>
+<li>dojo/request所返回的promise对象具有一个普通promise没有的附加属性：response。这个属性本身也是一个promise，它将提供一个对象来更详细地描述这次响应：</li>
+<li>url: 发起请求的最终URL（加上了query字符串）</li>
+<li>options: 请求相关的参数</li>
+<li>text: 响应中数据的字符串表示</li>
+<li>data: 对响应进行处理后返回的数据（如果handles参数指定了有效的解析方式）</li>
+<li>getHeader(headerName): 用于获取请求头部参数的函数；如果某个provider没有提供头部信息，这个函数将返回null。</li>
+</ul>
+<h5 id="3-3-Request函数-实例"><a href="#3-3-Request函数-实例" class="headerlink" title="3.3 Request函数-实例"></a>3.3 Request函数-实例</h5><pre class=" language-javascript"><code class="language-javascript"><span class="token function">Require</span><span class="token punctuation">(</span>“dojo<span class="token operator">/</span>request”<span class="token punctuation">,</span><span class="token function">Function</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>options<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token function">Function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 处理成功返回的数据</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 处理请求的失败</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 处理progress事件</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="4-Declare函数"><a href="#4-Declare函数" class="headerlink" title="4. Declare函数"></a>4. Declare函数</h4><ul>
+<li>Declare函数定义类</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">
+</code></pre>
+<h4 id="5-On函数"><a href="#5-On函数" class="headerlink" title="5. On函数"></a>5. On函数</h4><ul>
+<li>事件绑定函数</li>
+<li>绑定单击事件</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">on</span><span class="token punctuation">(</span>myButton<span class="token punctuation">,</span> <span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="第6讲-dojo配置dojoConfig、ContentPanes和FloatingPanes面板"><a href="#第6讲-dojo配置dojoConfig、ContentPanes和FloatingPanes面板" class="headerlink" title="第6讲 dojo配置dojoConfig、ContentPanes和FloatingPanes面板"></a>第6讲 dojo配置dojoConfig、ContentPanes和FloatingPanes面板</h3><h4 id="主讲内容-3"><a href="#主讲内容-3" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>dojo配置dojoCoonfig</li>
+<li>ContentPanes</li>
+<li>Floatingpanes</li>
+</ul>
+<h4 id="1-dojo配置dojoCoonfig"><a href="#1-dojo配置dojoCoonfig" class="headerlink" title="1. dojo配置dojoCoonfig"></a>1. dojo配置dojoCoonfig</h4><ul>
+<li>dojoConfig用于设置一些在Dojo运行时的选项和默认的行为方式。</li>
+<li>首先要定义dojoConfig设置一些属性，然后加载dojo.js，如果这个过程反过来，那dojoConfig的配置则无效。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// dojo配置dojoConfig</span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    dojoConfig<span class="token operator">=</span> <span class="token punctuation">{</span>
+        has<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"dojo-firebug"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        parseOnLoad<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        foo<span class="token punctuation">:</span> <span class="token string">"bar"</span><span class="token punctuation">,</span>
+        <span class="token keyword">async</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        aliases<span class="token punctuation">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">[</span><span class="token string">"ready"</span><span class="token punctuation">,</span> <span class="token string">"dojo/domReady"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token string">"registry"</span><span class="token punctuation">,</span><span class="token string">"dijit/registry"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token string">"dialog"</span><span class="token punctuation">,</span><span class="token string">"dijit/Dialog"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">[</span><span class="token string">"parser"</span><span class="token punctuation">,</span><span class="token string">"dojo/parser"</span><span class="token punctuation">]</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        packages<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">"js"</span><span class="token punctuation">,</span>
+            location<span class="token punctuation">:</span> <span class="token string">"/js"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>，
+        locale<span class="token punctuation">:</span> location<span class="token punctuation">.</span>search<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/locale=([\w\-]+)/</span><span class="token punctuation">)</span> <span class="token operator">?</span> RegExp<span class="token punctuation">.</span>$<span class="token number">1</span> <span class="token punctuation">:</span> <span class="token string">"en-us"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h5 id="1-1-has"><a href="#1-1-has" class="headerlink" title="1.1 has()"></a>1.1 has()</h5><p>has()用来设置一些Dojo支持的系统特性。</p>
+<pre class=" language-javascript"><code class="language-javascript">has<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"dojo-firebug"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 加载Dojo版的Firebug调试环境，如果浏览器没有自带调试工具，可以用这个 </span>
+  <span class="token string">"dojo-debug-messages"</span><span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 显示调试信息，针对于一些废弃的或测试中的功能特性在运行时的信息</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h5 id="1-2-Loader-Configuration"><a href="#1-2-Loader-Configuration" class="headerlink" title="1.2 Loader Configuration"></a>1.2 Loader Configuration</h5><ul>
+<li>Loader Configuration加载时一些常用选项 </li>
+</ul>
+<h5 id="1-3-packages"><a href="#1-3-packages" class="headerlink" title="1.3 packages"></a>1.3 packages</h5><ul>
+<li>提供包名及其路径</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">packages<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">"myapp"</span><span class="token punctuation">,</span>
+    location<span class="token punctuation">:</span> <span class="token string">"/js/myapp"</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+<h5 id="1-4-设置别名"><a href="#1-4-设置别名" class="headerlink" title="1.4 设置别名"></a>1.4 设置别名</h5><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//设置别名</span>
+aliases<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// [alias name, true name]</span>
+    <span class="token punctuation">[</span><span class="token string">"cookie"</span><span class="token punctuation">,</span> <span class="token string">"dojo/cookie"</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h5 id="1-5-async"><a href="#1-5-async" class="headerlink" title="1.5 async"></a>1.5 async</h5><ul>
+<li>nasync:true/false/legacyAsync // 是否异步加载</li>
+</ul>
+<h5 id="1-6-parseOnLoad"><a href="#1-6-parseOnLoad" class="headerlink" title="1.6 parseOnLoad"></a>1.6 parseOnLoad</h5><ul>
+<li>nparseOnLoad:true/false<br>//是否在DOM和所有初始化完成后由dojo.parser解析页面</li>
+</ul>
+<h5 id="1-7-locale"><a href="#1-7-locale" class="headerlink" title="1.7 locale"></a>1.7 locale</h5><ul>
+<li>本地化与国际化<br>locale:location.search.match(/locale=([\w-]+)/)? RegExp.$1 : “en-us”</li>
+</ul>
+<h4 id="2-ContentPanes"><a href="#2-ContentPanes" class="headerlink" title="2. ContentPanes"></a>2. ContentPanes</h4><ul>
+<li>ContentPanes是所有小部件的基石，其他任何小部件都可以用他作为内容或者子小部件的载体</li>
+</ul>
+<h4 id="3-FloatingPanes"><a href="#3-FloatingPanes" class="headerlink" title="3. FloatingPanes"></a>3. FloatingPanes</h4><ul>
+<li>Floatingpanes浮动面板，可以模拟Windows窗口的效果在页面上随意拖动</li>
+</ul>
+<h3 id="第7讲-BorderContainer和堆叠容器"><a href="#第7讲-BorderContainer和堆叠容器" class="headerlink" title="第7讲 BorderContainer和堆叠容器"></a>第7讲 BorderContainer和堆叠容器</h3><h4 id="主讲内容-4"><a href="#主讲内容-4" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>BorderContainer</li>
+<li>堆叠容器</li>
+</ul>
+<h4 id="1-BorderContainer"><a href="#1-BorderContainer" class="headerlink" title="1. BorderContainer"></a>1. BorderContainer</h4><ul>
+<li>BorderContainer是一个布局容器，主要分为5个区域，上下左右中</li>
+<li>每个BorderContainer都有两种不同的方式布局，可以通过“design”属性来控制，分别是headline和sidebar.</li>
+</ul>
+<h5 id="1-1-headline"><a href="#1-1-headline" class="headerlink" title="1.1 headline"></a>1.1 headline</h5><p><img src="/2019/05/08/qian-duan/03-dojo-basic/BorderContainer布局1-headline.png" alt="BorderContainer布局1-headline"></p>
+<h5 id="1-2-sidebar"><a href="#1-2-sidebar" class="headerlink" title="1.2 sidebar"></a>1.2 sidebar</h5><p><img src="/2019/05/08/qian-duan/03-dojo-basic/BorderContainer布局2-sidebar.png" alt="BorderContainer布局2-sidebar"></p>
+<h4 id="2-堆叠容器"><a href="#2-堆叠容器" class="headerlink" title="2. 堆叠容器"></a>2. 堆叠容器</h4><ul>
+<li><p>当页面中的内容比较多时候，可以使用堆叠容器显示部分元素，主要有3中类型</p>
+</li>
+<li><p>StackContainer</p>
+<p>最普遍的一种，需要自己编写控制和代码</p>
+</li>
+<li><p>AccordionContainer</p>
+<p>导航按钮在面板内显示</p>
+</li>
+<li><p>TabContainer</p>
+<p>按钮在前端一字排开</p>
+</li>
+</ul>
+<h3 id="第8讲-自定义小部件和内部小部件基类"><a href="#第8讲-自定义小部件和内部小部件基类" class="headerlink" title="第8讲 自定义小部件和内部小部件基类"></a>第8讲 自定义小部件和内部小部件基类</h3><h4 id="主讲内容-5"><a href="#主讲内容-5" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>行为性与非行为性小部件</li>
+<li>模块化小部件</li>
+<li>内部小部件基类</li>
+</ul>
+<h4 id="1-行为性小部件"><a href="#1-行为性小部件" class="headerlink" title="1. 行为性小部件"></a>1. 行为性小部件</h4><ul>
+<li>这类小部件直接使用DOM树创建自己的DOM树</li>
+</ul>
+<h4 id="2-非行为性小部件"><a href="#2-非行为性小部件" class="headerlink" title="2. 非行为性小部件"></a>2. 非行为性小部件</h4><ul>
+<li>非行为性小部件，最低的要求是创建一个DOM树，小部件的DOM树保存到domNode属性中</li>
+</ul>
+<h4 id="3-模块化小部件"><a href="#3-模块化小部件" class="headerlink" title="3. 模块化小部件"></a>3. 模块化小部件</h4><ul>
+<li>使用_TemplatedMixin实现小部件定义与小部件行为的实现分离开，实现模块化小部件</li>
+</ul>
+<h4 id="4-Widget接口"><a href="#4-Widget接口" class="headerlink" title="4. _Widget接口"></a>4. _Widget接口</h4><ul>
+<li>该接口用于定义一些设置方法，通过这些方法可以利用小部件管理器等类来统一管理小部件</li>
+</ul>
+<h4 id="5-小部件基类-BaseWidget代码"><a href="#5-小部件基类-BaseWidget代码" class="headerlink" title="5. 小部件基类_BaseWidget代码"></a>5. 小部件基类_BaseWidget代码</h4><ul>
+<li>小部件基类_BaseWidget代码</li>
+</ul>
+<h3 id="第9讲-可移动小部件"><a href="#第9讲-可移动小部件" class="headerlink" title="第9讲 可移动小部件"></a>第9讲 可移动小部件</h3><h4 id="主讲内容-6"><a href="#主讲内容-6" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>dojo/dnd/Moveable 移动组件</li>
+<li>dojo/dom 文档组件</li>
+<li>dojo/dom-style 样式组件</li>
+</ul>
+<h3 id="第10讲-模型与代码分离式小部件"><a href="#第10讲-模型与代码分离式小部件" class="headerlink" title="第10讲 模型与代码分离式小部件"></a>第10讲 模型与代码分离式小部件</h3><h4 id="建设步骤"><a href="#建设步骤" class="headerlink" title="建设步骤"></a>建设步骤</h4><ul>
+<li>构建模型</li>
+<li>编写代码</li>
+<li>组件调用</li>
+</ul>
+<h3 id="第11讲-动画控制"><a href="#第11讲-动画控制" class="headerlink" title="第11讲 动画控制"></a>第11讲 动画控制</h3><h4 id="主讲内容-7"><a href="#主讲内容-7" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>动画类库dojo/_base/fx</li>
+</ul>
+<h4 id="1-动画类库dojo-base-fx-主要方法"><a href="#1-动画类库dojo-base-fx-主要方法" class="headerlink" title="1. 动画类库dojo/_base/fx 主要方法"></a>1. 动画类库dojo/_base/fx 主要方法</h4><ul>
+<li>FadeIn()</li>
+<li>FadeOut()</li>
+<li>AnimateProperty()</li>
+</ul>
+<h4 id="2-FadeIn-语法"><a href="#2-FadeIn-语法" class="headerlink" title="2. FadeIn() 语法"></a>2. FadeIn() 语法</h4><ul>
+<li>FadeIn(dom节点对象)</li>
+</ul>
+<h4 id="3-FadeOut"><a href="#3-FadeOut" class="headerlink" title="3. FadeOut()"></a>3. FadeOut()</h4><ul>
+<li>FadeOut(dom节点对象)</li>
+</ul>
+<h4 id="4-AnimateProperty-属性"><a href="#4-AnimateProperty-属性" class="headerlink" title="4. AnimateProperty()属性"></a>4. AnimateProperty()属性</h4><ul>
+<li><p>Node:dom节点的ID</p>
+</li>
+<li><p>Properties属性</p>
+</li>
+<li>Duration:动画时间</li>
+<li>Rate：时间类型</li>
+<li>Easing:指定动画缓和曲线函数</li>
+<li>事件处理函数：如OnEnd</li>
+</ul>
+<h4 id="5-AnimateProperty-主要方法"><a href="#5-AnimateProperty-主要方法" class="headerlink" title="5. AnimateProperty()主要方法"></a>5. AnimateProperty()主要方法</h4><ul>
+<li>Play()动画播放</li>
+<li>Pause()动画暂停</li>
+<li>Status()返回动画当前状态</li>
+<li>Stop(gotoEnd)停止播放，gotoEnd为true时候，当前位置位置为1%</li>
+</ul>
+<h2 id="第12讲-订阅、发布模式的事件处理机制"><a href="#第12讲-订阅、发布模式的事件处理机制" class="headerlink" title="第12讲 订阅、发布模式的事件处理机制"></a>第12讲 订阅、发布模式的事件处理机制</h2><h4 id="主讲内容-8"><a href="#主讲内容-8" class="headerlink" title="主讲内容"></a>主讲内容</h4><ul>
+<li>简介</li>
+<li>Subscribe</li>
+<li>publish</li>
+</ul>
+<h4 id="1-简介"><a href="#1-简介" class="headerlink" title="1.  简介"></a>1.  简介</h4><ul>
+<li>订阅/发布模式可以说是一个预定系统，用户先预定自己感兴趣的主题，当此类主题发布时，将在第一时间得到通知。在订阅/发布模式下，预订的时候并不确定主题是否已经存在，以后是否会发布，只是在主题发布后，会立即得到通知。在DOJO中，跟订阅/发布有关的函数位于dojo/topic模块中，有两个：subscribe和publish</li>
+</ul>
+<h4 id="2-Subscribe"><a href="#2-Subscribe" class="headerlink" title="2. Subscribe"></a>2. Subscribe</h4><ul>
+<li><p>Subscribe函数用来订阅某一主题，将接收两个参数，</p>
+<p>1.主题名字，为一个字符串，必须能够唯一标示的主题<br>2.参数的回调函数。Subscribe返回一个句柄，该句柄的remove方法用于取消订阅</p>
+</li>
+</ul>
+<h4 id="3-Publish"><a href="#3-Publish" class="headerlink" title="3. Publish"></a>3. Publish</h4><ul>
+<li>Publish用于发布某个主题，将接收多个参数，1.为发布信息的名字，其他参数为传递给订阅回调函数的参数。</li>
+</ul>
+<h3 id="第13讲-常用组件"><a href="#第13讲-常用组件" class="headerlink" title="第13讲 常用组件"></a>第13讲 常用组件</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 学习方法</span>
+百度搜索<span class="token operator">:</span>
+dojo menu
+</code></pre>
+<h3 id="第14讲-dojo的ajax与webservice通信"><a href="#第14讲-dojo的ajax与webservice通信" class="headerlink" title="第14讲 dojo的ajax与webservice通信"></a>第14讲 dojo的ajax与webservice通信</h3><pre class=" language-javascript"><code class="language-javascript">
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://cdwangtao.github.io" class="b-link-green">王涛的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/05/08/qian-duan/03-dojo-basic/" class="b-link-green">第03章 dojo基础</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdwangtao.gitee.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdwangtao.gitee.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '97bf7df25f068cc01ee2',
+        clientSecret: '1ae257149b89215ae5b8dc0d637206ad81f89a08',
+        repo: 'cdwangtao.github.io',
+        owner: 'cdwangtao',
+        admin: ["cdwangtao"],
+        id: '2019-05-08T11-18-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/05/08/qian-duan/04-arcgis-api/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="第04章 Arcgis JS Api基础">
+                        
+                        <span class="card-title">第04章 Arcgis JS Api基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">第04章 Arcgis JS Api基础第1讲 无第2讲 重要API类主讲内容
+Vs智能提示配置
+地图类Map
+图层类型
+Geometry
+Symbol 
+Graphic
+Render
+FeatureSet
+
+1. VS智能提示配置
+arc</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/dojo/" target="_blank">
+                        <span class="chip bg-color">dojo</span>
+                    </a>
+                    
+                    <a href="/tags/Arcgis-JS-Api/" target="_blank">
+                        <span class="chip bg-color">Arcgis JS Api</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/07/ruan-jian-gong-ju/windows/win10-powershell2cmd/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Win10 shift+鼠标右键 cmd变成powershell，改回显示cmd">
+                        
+                        <span class="card-title">Win10 shift+鼠标右键 cmd变成powershell，改回显示cmd</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">1. win10 shift鼠标右键 cmd变成powershell，改回显示cmd
+第一步：打开注册表编辑器  win+R 输入 regedit
+第二步：找到“计算机\HKEY_CLASSES_ROOT\Directory\Backgro</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Windows/" class="post-category" target="_blank">
+                                    Windows
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/" target="_blank">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="https://cdwangtao.gitee.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cdwangtao" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:wt8800@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=584694566" class="tooltipped" data-tooltip="QQ联系我: 584694566" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="https://cdwangtao.gitee.io/libs/materialize/materialize.min.js"></script>
+<script src="https://cdwangtao.gitee.io/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="https://cdwangtao.gitee.io/libs/aos/aos.js"></script>
+<script src="https://cdwangtao.gitee.io/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="https://cdwangtao.gitee.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="https://cdwangtao.gitee.io/libs/others/clicklove.js"></script>
+
+
+    <script async src="https://cdwangtao.gitee.io/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
